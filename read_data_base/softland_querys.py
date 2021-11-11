@@ -1,5 +1,5 @@
-from typing import Optional, List
-
+from typing import List
+from datetime import datetime
 
 class SQLQuery:
     def __init__(   self,table: str,
@@ -52,7 +52,7 @@ class QueryAuxiliares(SQLQuery):
     pass
 
 class QueryAnalisisMovimientos(SQLQuery):
-    def __init__(self,account: str,closing_date: str) -> None:
+    def __init__(self,account: str,closing_date: datetime) -> None:
         table = "softland.cwmovim A join softland.cwcpbte B on A.CpbNum = B.CpbNum  and A.CpbAno = B.CpbAno"
         selected_columns = ["A.CpbFec as 'Fecha'",
                             "A.MovGlosa as 'Detalle'",
@@ -66,9 +66,9 @@ class QueryAnalisisMovimientos(SQLQuery):
                             "A.MovHaber as 'Haber'"]
         filters=[   "A.PctCod = '"+account+"'",
                     "B.CpbEst = 'V'",
-                    "A.CpbFec <= '"+closing_date+"'"
-                    "A.TtdCod <> '00'",
-                    "(A.CpbNum <> '00000000' Or A.CpbAno = MIN(A.CpbAno))"
+                    "A.CpbFec <= '"+closing_date.strftime('%Y%m%d')+"'",
+                    # "(A.CpbNum <> '00000000' Or A.CpbAno = MIN(A.CpbAno))",
+                    "A.TtdCod <> '00'"
                 ]
         super().__init__(   table=table,
                             selected_columns=selected_columns,

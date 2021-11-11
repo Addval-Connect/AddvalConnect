@@ -7,10 +7,10 @@ from read_data_base.data_base_query import DataBaseQuery
 from read_data_base.data_frame_collector import DataFrameCollector
 
 from excel_writer.analisis_excel_writer import generate_excel
-from informe_cuentas_softland import analisis_cuentas_por_cobrar
+from analisis_cuentas.informe_cuentas_softland import analisis_cuentas_por_cobrar
 
 
-def GenerateAnalisis(   client_name: str, 
+def generar_analisis(   client_name: str, 
                         client_rut: str,
                         account: str,
                         input_date: datetime,
@@ -31,18 +31,20 @@ def GenerateAnalisis(   client_name: str,
     #Read Movements
     movimientos = collector.get_data(movimientos_query)
 
-    if all_docs_df and auxiliares and movimientos:
-        movimientos_con_auxiliares = analisis_cuentas_por_cobrar(all_docs_df,auxiliares,movimientos)
+    if all_docs_df is not None:
+        if auxiliares is not None:
+            if movimientos is not None:
+                movimientos_con_auxiliares = analisis_cuentas_por_cobrar(all_docs_df,auxiliares,movimientos)
 
-        #Generate Excel
-        generate_excel( client_name,
-                        client_rut,
-                        account,
-                        input_date,
-                        movimientos_con_auxiliares,
-                        EconomicIndicators(input_date))
-        print("Analisis generado satisfactoriamente")
-        return
+                #Generate Excel
+                generate_excel( client_name,
+                                client_rut,
+                                account,
+                                input_date,
+                                movimientos_con_auxiliares,
+                                EconomicIndicators(input_date))
+                print("Analisis generado satisfactoriamente")
+                return
         
     print("Problemas de Conexion con la base de datos")
     pass

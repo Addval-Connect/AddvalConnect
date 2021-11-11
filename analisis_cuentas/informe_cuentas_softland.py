@@ -1,4 +1,10 @@
 import pandas as pd
+from typing import Union
+
+#Descartar mobimientos iniciales, a exepcion de los del primer año
+def remove_initial_movements(movimientos: pd.DataFrame) -> Union[pd.DataFrame,pd.Series]:
+    clean_movements = movimientos[~((movimientos.CpbNum=='00000000')&(movimientos.CpbAno!=movimientos.CpbAno.min()))]
+    return clean_movements
 
 # Anexar datos de auxiliares a movimientos
 def join_movements_auxiliares(movimientos,auxiliares):
@@ -61,8 +67,10 @@ def analisis_cuentas_por_cobrar(   all_docs_df: pd.DataFrame,
                                 auxiliares: pd.DataFrame,
                                 movimientos: pd.DataFrame) -> pd.DataFrame:
 
+    movimientos_limpios = remove_initial_movements(movimientos)
+
     #Descartar Movimientos Calzados
-    movimientos_no_calzados = movimientos.groupby(['CodAux','Numero Documento Referencia']).filter(lambda group: group.Debe.sum()-group.Haber.sum()!=0)
+    movimientos_no_calzados = movimientos_limpios.groupby(['CodAux','Numero Documento Referencia']).filter(lambda group: group.Debe.sum()-group.Haber.sum()!=0)
 
     #Separar movimientos
     movimientos_iniciales,movimientos_otros =  separate_movements(movimientos_no_calzados,all_docs_df)

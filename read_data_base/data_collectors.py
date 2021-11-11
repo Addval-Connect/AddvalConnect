@@ -1,5 +1,5 @@
 import pyodbc
-from data_base_query import DataBaseQuery
+from read_data_base.data_base_query import DataBaseQuery
 from typing import Optional
 import pandas as pd
 

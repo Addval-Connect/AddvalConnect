@@ -1,5 +1,5 @@
 from typing import Protocol,Optional
-from data_base_query import DataBaseQuery
+from read_data_base.data_base_query import DataBaseQuery
 import pandas as pd
 
 class DataFrameCollector(Protocol):

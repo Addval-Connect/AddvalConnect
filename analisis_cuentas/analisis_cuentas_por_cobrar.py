@@ -3,6 +3,9 @@ from datetime import datetime
 
 #LOCAL IMPORTS
 from online_indicators.economic_indicators import EconomicIndicators
+from read_data_base.data_base_query import DataBaseQuery
+from read_data_base.data_frame_collector import DataFrameCollector
+
 from excel_writer.analisis_excel_writer import generate_excel
 from informe_cuentas_softland import analisis_cuentas_por_cobrar
 from read_data_base.data_frame_collector import DataFrameCollector

@@ -8,8 +8,7 @@ from read_data_base.data_frame_collector import DataFrameCollector
 
 from excel_writer.analisis_excel_writer import generate_excel
 from informe_cuentas_softland import analisis_cuentas_por_cobrar
-from read_data_base.data_frame_collector import DataFrameCollector
-from read_data_base.data_base_query import DataBaseQuery
+
 
 def GenerateAnalisis(   client_name: str, 
                         client_rut: str,

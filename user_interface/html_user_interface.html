@@ -1,0 +1,127 @@
+<html>
+
+<head>
+    <title>Restaurant Feedback Form</title>
+    <style>
+        html,
+        body {
+            min-height: 100%;
+        }
+
+        body,
+        div,
+        form,
+        input,
+        select {
+            padding: 0;
+            margin: 0;
+            outline: none;
+            font-family: Roboto, Arial, sans-serif;
+            font-size: 14px;
+            color: #666;
+            line-height: 22px;
+        }
+
+        h1,
+        h4 {
+            /* margin: 15px 0 4px; */
+            font-weight: 400;
+        }
+
+        span {
+            color: red;
+        }
+
+        .testbox {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: inherit;
+            padding: 3px;
+        }
+
+        form {
+            width: 100%;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 2px 5px #ccc;
+        }
+
+        input {
+            width: calc(100% - 10px);
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        input:hover {
+            outline: none;
+            border: 1px solid #095484;
+        }
+
+        .input-fecha {
+            position: relative;
+        }
+
+        .input-fecha input {
+            width: calc(100% - 12px);
+            background: #e6eef7;
+        }
+
+        .btn-block {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        button {
+            width: 150px;
+            padding: 10px;
+            border: none;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            background-color: #095484;
+            font-size: 16px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0666a3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="testbox">
+        <form action="/">
+            <div class="logo">
+                <img src="logo_addval.png"
+                    alt="Addval Icon"
+                    style="float:right;width:256px;height:100px;">
+            </div>
+            <h1> Asesoría Fuenzalida y del Valles</h1>
+            <p>Reporte de análisis de cuentas de clientes nacionales y reembolsos por cobrar.</p>
+            <h4>Fecha de Reporte<span>*</span></h4>
+            <div class="input-fecha">
+                <input type="date" name="fecha-reporte" required />
+            </div>
+            <div class="btn-block">
+                <button 
+                    type="submit"
+                    method="post" 
+                    action="/analisis_clientes_nacionales"
+                    name="clientes-nacionales">
+                    Análisis de clientes nacionales
+                </button>
+                <button 
+                    type="submit"
+                    method="post"
+                    action="/analisis_reembolsos"
+                    name="reembolsos">
+                    Análisis de reembolsos por cobrar
+                </button>
+            </div>
+        </form>
+    </div>
+</body>

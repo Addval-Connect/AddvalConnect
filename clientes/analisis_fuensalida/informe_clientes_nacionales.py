@@ -15,11 +15,7 @@ from read_data_base.softland_querys import QueryTipoDocumentos,QueryAuxiliares,Q
 #                         movimientos_query: DataBaseQuery) -> None:
 
 
-
-
-def main() -> None:
-    input_date = datetime.strptime("30/09/2021","%d/%m/%Y")
-
+def informe_cuentas_por_cobrar_fuensalida(input_date: datetime) -> None:
     collector = SQLServerCollector( params.server,
                                     params.port,
                                     params.database,
@@ -39,6 +35,12 @@ def main() -> None:
                                 docs_query,
                                 auxiliares_query,
                                 movimientos_query)
+
+
+
+def main() -> None:
+    input_date = datetime.strptime("30/09/2021","%d/%m/%Y")
+    informe_cuentas_por_cobrar_fuensalida(input_date)
 
 if __name__ == '__main__':
     main()

@@ -2,8 +2,8 @@ import pandas as pd
 from typing import Union
 
 #Descartar mobimientos iniciales, a exepcion de los del primer año
-def remove_initial_movements(movimientos: pd.DataFrame) -> Union[pd.DataFrame,pd.Series]:
-    clean_movements = movimientos[~((movimientos.CpbNum=='00000000')&(movimientos.CpbAno!=movimientos.CpbAno.min()))]
+def remove_initial_movements(movimientos: pd.DataFrame) -> pd.DataFrame:
+    clean_movements = movimientos.loc[[~((movimientos.CpbNum=='00000000')&(movimientos.CpbAno!=movimientos.CpbAno.min()))],:]
     return clean_movements
 
 # Anexar datos de auxiliares a movimientos
@@ -63,7 +63,7 @@ def calculate_movement_balance(movimientos_iniciales,movimientos_otros):
     balance = balance.sort_values(['CodAux','Numero Documento Referencia','Fecha'])
     return balance
 
-def analisis_cuentas_por_cobrar(   all_docs_df: pd.DataFrame,
+def analisis_cuentas_por_cobrar(all_docs_df: pd.DataFrame,
                                 auxiliares: pd.DataFrame,
                                 movimientos: pd.DataFrame) -> pd.DataFrame:
 

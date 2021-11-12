@@ -51,6 +51,23 @@ class QueryAuxiliares(SQLQuery):
         pass
     pass
 
+class QueryTodosComprobantes(SQLQuery):
+    def __init__(self) -> None:
+        table = "softland.cwcpbte"
+        super().__init__(table)
+        pass
+    pass
+
+class QueryTodosMovimientos(SQLQuery):
+    def __init__(self,account: str) -> None:
+        table = "softland.cwmovim"
+        filters=[   "PctCod = '"+account+"'"
+                ]
+        super().__init__(   table=table,
+                            filters=filters)
+        pass
+    pass
+
 class QueryAnalisisMovimientos(SQLQuery):
     def __init__(self,account: str,closing_date: datetime) -> None:
         table = "softland.cwmovim A join softland.cwcpbte B on A.CpbNum = B.CpbNum  and A.CpbAno = B.CpbAno"
@@ -67,7 +84,6 @@ class QueryAnalisisMovimientos(SQLQuery):
         filters=[   "A.PctCod = '"+account+"'",
                     "B.CpbEst = 'V'",
                     "A.CpbFec <= '"+closing_date.strftime('%Y%m%d')+"'",
-                    # "(A.CpbNum <> '00000000' Or A.CpbAno = MIN(A.CpbAno))",
                     "A.TtdCod <> '00'"
                 ]
         super().__init__(   table=table,

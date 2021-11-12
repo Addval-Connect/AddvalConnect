@@ -24,12 +24,12 @@ def informe_cuentas_por_cobrar_fuensalida(input_date: datetime) -> None:
 
     docs_query = QueryTipoDocumentos()
     auxiliares_query = QueryAuxiliares()
-    movimientos_query = QueryAnalisisMovimientos(   params.account,
+    movimientos_query = QueryAnalisisMovimientos(   params.clientes_nacionales,
                                                     input_date)
 
     informe.generar_analisis(   params.client_name,
                                 params.client_rut,
-                                params.account,
+                                params.clientes_nacionales,
                                 input_date,
                                 collector,
                                 docs_query,

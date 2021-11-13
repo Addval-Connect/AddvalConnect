@@ -1,1 +1,3 @@
 include excel_writer/logo_addval.png
+include templates/logo_addval.png
+include templates/html_user_interface.html

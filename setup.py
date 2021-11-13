@@ -15,7 +15,7 @@ setup(
     description="Herramientas para conexion a bases de datos y generación de informes para Addval Connect",
     long_description=README,
     long_description_content_type="text/markdown",
-    url="https://github.com/DHerrmannP/AddvalConnect.git",
+    url="https://github.com/Addval-Connect/AddvalConnect.git",
     author="Daniel Herrmann",
     author_email="dherrmann@addval.com",
     license="None",
@@ -26,7 +26,8 @@ setup(
     packages=[  "analisis_cuentas",
                 "excel_writer",
                 "online_indicators",
-                "read_data_base"],
+                "read_data_base",
+                "clientes"],
     include_package_data=True,
     install_requires=["pyodbc", "pandas", "xlsxwriter"]
 )

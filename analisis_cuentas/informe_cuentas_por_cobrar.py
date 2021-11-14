@@ -17,7 +17,8 @@ def generar_analisis(   client_name: str,
                         collector: DataFrameCollector,
                         docs_query: DataBaseQuery,
                         auxiliares_query: DataBaseQuery,
-                        movimientos_query: DataBaseQuery) -> None:
+                        movimientos_query: DataBaseQuery,
+                        file_name: str) -> None:
 
     #Connect to database
     collector.connect()
@@ -42,7 +43,8 @@ def generar_analisis(   client_name: str,
                                 account,
                                 input_date,
                                 movimientos_con_auxiliares,
-                                EconomicIndicators(input_date))
+                                EconomicIndicators(input_date),
+                                file_name)
                 print("Analisis generado satisfactoriamente")
                 return
         

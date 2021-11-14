@@ -1,6 +1,6 @@
-# from clientes.analisis_fuensalida.informe_clientes_nacionales import informe_cuentas_por_cobrar_fuensalida
-# from datetime import datetime
-import pandas as pd
+from clientes.analisis_fuensalida.informe_clientes_nacionales import informe_cuentas_por_cobrar_fuensalida
+from datetime import datetime
+# import pandas as pd
 import os
 # A very simple Flask Hello World app for you to get started with...
 
@@ -16,17 +16,12 @@ def hello():
 
 @app.route("/generate-report")
 def buttons():
-    input_date = request.args["fecha"]
+    input_date = datetime.strptime(request.args["fecha"],"%Y-%m-%d")
     informe = request.args["informe"]
-
-    output_df = pd.DataFrame([[0,1,2,3],[0,1,2,3],[0,1,2,3]])
-    output_df.iloc[1,:] = input_date
     path = os.path.dirname(os.path.realpath(__file__))
 
     if informe=="clientes-nacionales":
-        output_df.iloc[0,:] = informe
+        informe_cuentas_por_cobrar_fuensalida(input_date,path+"/analisis_cuentas.xlsx")
+        return send_file(path+"/analisis_cuentas.xlsx", as_attachment=False)
     elif informe=="reembolsos":
-        output_df.iloc[2,:] = informe
-
-    output_df.to_excel(path+"/fake_excel.xlsx")
-    return send_file(path+"/fake_excel.xlsx", as_attachment=False)
+        return informe

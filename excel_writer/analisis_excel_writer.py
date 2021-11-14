@@ -12,9 +12,10 @@ def generate_excel( client_name: str,
                     account: str,
                     user_date: datetime,
                     movimientos_df: pd.DataFrame,
-                    indicators: EconomicIndicators):
+                    indicators: EconomicIndicators,
+                    file_name: str):
     # Creates Excel file
-    workbook = xlsxwriter.Workbook('Analisis_Cuentas.xlsx')
+    workbook = xlsxwriter.Workbook(file_name)
 
     # Adds worksheet
     worksheet = workbook.add_worksheet()

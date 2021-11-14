@@ -1,4 +1,4 @@
-from clientes.analisis_fuensalida.informe_clientes_nacionales import informe_cuentas_por_cobrar_fuensalida
+from clientes.analisis_fuensalida.informe_clientes_nacionales_anywhere import informe_cuentas_por_cobrar_fuensalida
 from datetime import datetime
 ## pyodbc setup ##
 import os

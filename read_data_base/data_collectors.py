@@ -31,3 +31,30 @@ class SQLServerCollector:
     def disconnect(self) -> None:
         if self.connection:
             self.connection.commit()
+
+class PythonAnywhereSQLServerCollector:
+    def __init__(   self,
+                    database,
+                    username,
+                    password) -> None:
+
+        self.connection_string = (
+            'DSN=sqlserverdatasource;'
+            'Encrypt=yes;'
+            'Connection Timeout=30;'
+            'DATABASE='+database+';'
+            'UID='+username+';'
+            'PWD='+ password)
+
+        self.connection = None
+
+    def connect(self) -> None:
+        self.connection = pyodbc.connect(self.connection_string)
+
+    def get_data(self,query: DataBaseQuery) -> Optional[pd.DataFrame]:
+        if self.connection:
+            return pd.read_sql_query(query.get_query(),self.connection)
+
+    def disconnect(self) -> None:
+        if self.connection:
+            self.connection.commit()

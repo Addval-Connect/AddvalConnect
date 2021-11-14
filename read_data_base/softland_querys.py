@@ -91,9 +91,3 @@ class QueryAnalisisMovimientos(SQLQuery):
                             filters=filters)
         pass
     pass
-
-
-# ## Read Movements
-# def read_movements(account,date,cnxn):
-#     movimientos = movimientos[~((movimientos.CpbNum=='00000000')&(movimientos.CpbAno!='2016'))]
-#     return movimientos

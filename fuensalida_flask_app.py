@@ -17,9 +17,9 @@ def hello():
 @app.route("/generate-report")
 def buttons():
 
-    informe = request.args["informe"]
+    informe = request.args["tipo-informe"]
     if informe=="clientes-nacionales":
-        input_date = datetime.strptime(request.args["fecha"],"%Y-%m-%d")
+        input_date = datetime.strptime(request.args["fecha-reporte"],"%Y-%m-%d")
         path = os.path.dirname(os.path.realpath(__file__))
         informe_cuentas_por_cobrar_fuensalida(input_date,path+"/analisis_cuentas.xlsx")
         return send_file(path+"/analisis_cuentas.xlsx", as_attachment=False)

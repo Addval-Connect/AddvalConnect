@@ -29,14 +29,14 @@
             <div class="card card-4">
                 <div class="card-body">
                     <h2 class="title">Portal de Reportes</h2>
-                    <form method="POST" action="/obtener_reporte">
+                    <form method="GET" action="/generate-report">
                         <div class="input-group">
                             <label class="label">Tipo de Reporte</label>
                             <div class="rs-select2 js-select-simple select--no-search">
-                                <select name="subject">
+                                <select name="tipo-informe" >
                                     <option disabled="disabled">Seleccionar Opción</option>
-                                    <option selected="selected" name="informe" id="clientes-nacionales" value="clientes-nacionales">Clientes Nacionales </option>
-                                    <option disabled="disabled" name="informe" id="clientes-nacionales" value="reembolsos">Reembolsos por Cobrar</option>
+                                    <option selected="selected"  value="clientes-nacionales">Clientes Nacionales </option>
+                                    <option disabled="disabled"  value="reembolsos">Reembolsos por Cobrar</option>
                                 </select>
                                 <div class="select-dropdown"></div>
                             </div>

@@ -5,9 +5,9 @@
     <!-- Required meta tags-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="Desarrollado por Addval" content="Login Portal">
+    <meta name="Desarrollado por Addval" content="Portal de Reportes">
     <!-- Title Page-->
-    <title>Portal Inicio de Sesión</title>
+    <title>Portal de Reportes Addval</title>
 
     <!-- Icons font CSS-->
     <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
@@ -33,10 +33,10 @@
                         <div class="input-group">
                             <label class="label">Tipo de Reporte</label>
                             <div class="rs-select2 js-select-simple select--no-search">
-                                <select name="tipo-informe" >
-                                    <option disabled="disabled">Seleccionar Opción</option>
-                                    <option selected="selected"  value="clientes-nacionales">Clientes Nacionales </option>
-                                    <option disabled="disabled"  value="reembolsos">Reembolsos por Cobrar</option>
+                                <select name="tipo-informe" required>
+                                    <option disabled="disabled" selected="selected" value="">Seleccionar Reporte</option>
+                                    <option value="clientes-nacionales">Clientes Nacionales </option>
+                                    <option value="reembolsos">Reembolsos por Cobrar</option>
                                 </select>
                                 <div class="select-dropdown"></div>
                             </div>
@@ -50,7 +50,7 @@
                                         <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
                                     </div>
                                 </div>
-                            </div>  
+                            </div>
                         </div>
                         <div class="p-t-15">
                             <button class="btn btn--radius-2 btn--blue" type="submit">Obtener Reporte</button>

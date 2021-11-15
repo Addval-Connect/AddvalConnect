@@ -32,6 +32,7 @@ class SQLServerCollector:
         if self.connection:
             self.connection.commit()
 
+# more info in https://help.pythonanywhere.com/pages/MSSQLServer/
 class PythonAnywhereSQLServerCollector:
     def __init__(   self,
                     database,

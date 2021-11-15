@@ -12,7 +12,7 @@ app.config["DEBUG"] = True
 
 @app.route('/')
 def hello():
-    return render_template("html_user_interface.html")
+    return render_template("Portal Datos/index.html")
 
 @app.route("/generate-report")
 def buttons():

@@ -29,14 +29,14 @@
             <div class="card card-4">
                 <div class="card-body">
                     <h2 class="title">Portal de Reportes</h2>
-                    <form method="POST">
+                    <form method="POST" action="/obtener_reporte">
                         <div class="input-group">
                             <label class="label">Tipo de Reporte</label>
                             <div class="rs-select2 js-select-simple select--no-search">
                                 <select name="subject">
                                     <option disabled="disabled">Seleccionar Opción</option>
-                                    <option selected="selected">Clientes Nacionales</option>
-                                    <option disabled="disabled">Reembolsos por Cobrar</option>
+                                    <option selected="selected" name="informe" id="clientes-nacionales" value="clientes-nacionales">Clientes Nacionales </option>
+                                    <option disabled="disabled" name="informe" id="clientes-nacionales" value="reembolsos">Reembolsos por Cobrar</option>
                                 </select>
                                 <div class="select-dropdown"></div>
                             </div>
@@ -46,7 +46,7 @@
                                 <div class="input-group">
                                     <label class="label">Fecha de Reporte</label>
                                     <div class="input-group-icon">
-                                        <input class="input--style-4 js-datepicker" type="text" name="fecha-reporte" required>
+                                        <input class="input--style-4 js-datepicker" type="text" name="fecha-reporte" id="fecha-reporte" required>
                                         <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
                                     </div>
                                 </div>

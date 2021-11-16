@@ -183,7 +183,7 @@ class InformeCuentasExcelGenerator:
         worksheet.write(1, 3, self.client_name, bold)
         worksheet.write(2, 3, self.client_rut, bold)
         file_path = os.path.dirname(os.path.realpath(__file__))
-        worksheet.insert_image(0, 7, file_path+'/../resources/logo_addval.png', {'x_scale': 1, 'y_scale': 1})
+        worksheet.insert_image(0, 7, file_path+'/../resources/logo_addval.png', {'x_scale': 0.5, 'y_scale': 0.5})
         # worksheet.insert_image(0, 5, resource_path('AnalisisFuensalida\\logo_addval.png'), {'x_scale': 1, 'y_scale': 1})
 
         # Modifies starting point of column (Sub header and client records)

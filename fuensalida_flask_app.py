@@ -21,7 +21,8 @@ def buttons():
     if informe=="clientes-nacionales":
         input_date = datetime.strptime(request.args["fecha-reporte"],"%d/%m/%Y")
         path = os.path.dirname(os.path.realpath(__file__))
+        file_name = input_date,path+"/analisis_cuentas.xlsx"
         informe_cuentas_por_cobrar_fuensalida(input_date,path+"/analisis_cuentas.xlsx")
-        return send_file(path+"/analisis_cuentas.xlsx", as_attachment=False)
+        return send_file(file_name, as_attachment=False)
     elif informe=="reembolsos":
         return request.args
